@@ -1,3 +1,5 @@
+Question Link: https://leetcode.com/problems/long-pressed-name/
+
 class Solution {
 public:
     bool isLongPressedName(string s, string p) {
