@@ -1,6 +1,5 @@
 Question Link: https://leetcode.com/problems/range-addition/
 
-
 class Solution {
 public:
     vector<int> getModifiedArray(int len, vector<vector<int>> &updates) {
