@@ -1,3 +1,5 @@
+Question Link: https://leetcode.com/problems/sum-of-floored-pairs/
+
 class Solution {
 public:
     
