@@ -1,3 +1,5 @@
+Question Link: https://leetcode.com/problems/maximum-number-of-consecutive-values-you-can-make/
+
 class Solution {
 public:
     int getMaximumConsecutive(vector<int>& a) {
