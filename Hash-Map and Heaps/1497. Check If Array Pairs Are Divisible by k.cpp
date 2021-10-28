@@ -1,3 +1,5 @@
+Question Link: https://leetcode.com/problems/check-if-array-pairs-are-divisible-by-k/
+
 class Solution {
 public:
     bool canArrange(vector<int>& a, int k) {
