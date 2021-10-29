@@ -1,14 +1,12 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
+
+
+1.For tree rooted at particular node to be BST:
+--> Left Child is BST
+--> Right Child is BST
+2.Current node has to be BST itself:
+--> node value > max value in Left Child
+--> node value < min value in Right Child
+
 class Solution {
 public:
     
