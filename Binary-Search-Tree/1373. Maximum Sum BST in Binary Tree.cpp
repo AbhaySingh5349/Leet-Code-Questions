@@ -1,11 +1,13 @@
+Question Link: https://leetcode.com/problems/maximum-sum-bst-in-binary-tree/
 
-
-1.For tree rooted at particular node to be BST:
---> Left Child is BST
---> Right Child is BST
-2.Current node has to be BST itself:
---> node value > max value in Left Child
---> node value < min value in Right Child
+/*
+    1.For tree rooted at particular node to be BST:
+    --> Left Child is BST
+    --> Right Child is BST
+    2.Current node has to be BST itself:
+    --> node value > max value in Left Child
+    --> node value < min value in Right Child 
+*/
 
 class Solution {
 public:
