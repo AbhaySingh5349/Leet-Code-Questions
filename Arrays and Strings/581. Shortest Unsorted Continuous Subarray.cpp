@@ -1,8 +1,12 @@
+Question Link: https://leetcode.com/problems/shortest-unsorted-continuous-subarray/
+
+// Approach 1:
+
 class Solution {
 public:
     int findUnsortedSubarray(vector<int>& a) {
         int n=a.size();
-    /*    vector<int> v=a;
+        vector<int> v=a;
         sort(a.begin(),a.end());
         int idx1=-1, idx2=-1;
         for(int i=0;i<n;i++){
@@ -14,7 +18,16 @@ public:
                 }
             }
         }
-        return (idx1==-1 ? 0:idx2-idx1+1); */
+        return (idx1==-1 ? 0:idx2-idx1+1);
+    }
+};
+
+// Approach 2:
+
+class Solution {
+public:
+    int findUnsortedSubarray(vector<int>& a) {
+        int n=a.size();
         
         int curmax=a[0];
         int l=-1, r=-1;
