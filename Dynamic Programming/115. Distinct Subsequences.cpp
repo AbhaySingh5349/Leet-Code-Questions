@@ -1,3 +1,7 @@
+Question Link: https://leetcode.com/problems/distinct-subsequences/
+
+// Approach 1:
+
 class Solution {
 public:
     
@@ -20,7 +24,17 @@ public:
         int n=s.length(), m=p.length();
         
         memo.resize(n+1,vector<int>(m+1,-1));
-    //    return solve(s,p,0,0);
+        return solve(s,p,0,0);
+    }
+};
+
+// Approach 2:
+
+class Solution {
+public:
+    
+    int numDistinct(string s, string p) {
+        int n=s.length(), m=p.length();
         
         unsigned int dp[n+1][m+1];
         for(int i=0;i<n+1;i++) dp[i][0]=1;
