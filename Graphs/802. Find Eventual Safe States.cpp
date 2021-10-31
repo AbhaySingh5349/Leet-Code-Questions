@@ -4,8 +4,8 @@ class Solution {
 public:
     
     bool dfs(vector<vector<int>> &graph, int src, vector<bool> &visited, vector<bool> &dfsVisited){
-        visited[src]=true;
-        dfsVisited[src]=true;
+        visited[src]=true; // all the nodes visited in multiple DFS calls
+        dfsVisited[src]=true; // nodes visited in current DFS call
         
         for(int i=0;i<graph[src].size();i++){
             int child=graph[src][i];
