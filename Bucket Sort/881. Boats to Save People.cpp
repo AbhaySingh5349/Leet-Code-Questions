@@ -1,5 +1,7 @@
 
 
+// Approach 1:
+
 class Solution {
 public:
     int numRescueBoats(vector<int>& a, int limit) {
