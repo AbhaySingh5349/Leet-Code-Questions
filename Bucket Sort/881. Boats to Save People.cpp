@@ -1,7 +1,9 @@
+
+
 class Solution {
 public:
     int numRescueBoats(vector<int>& a, int limit) {
-    /*    sort(a.begin(),a.end());
+        sort(a.begin(),a.end());
         int n=a.size();
         int i=0, j=n-1;
         int c=0;
@@ -15,7 +17,15 @@ public:
                 i++;
             }
         }
-        return c; */
+        return c; 
+    }
+};
+
+// Approach 2:
+
+class Solution {
+public:
+    int numRescueBoats(vector<int>& a, int limit) {
         int n=a.size();
         int bucket[limit+1];
         for(int i=0;i<limit+1;i++) bucket[i]=0;
@@ -42,3 +52,4 @@ public:
         return c;
     }
 };
+
