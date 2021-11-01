@@ -1,9 +1,11 @@
+Question Link: https://leetcode.com/problems/surrounded-regions/
+
 class Solution {
 public:
     
     int dxy[4][2]={{-1,0},{0,1},{1,0},{0,-1}};
     
- /*   void dfs(vector<vector<char>>& grid, int i, int j, vector<vector<bool>> &visited, bool &boundary){
+    void dfs(vector<vector<char>>& grid, int i, int j, vector<vector<bool>> &visited, bool &boundary){
         int n=grid.size(), m=grid[0].size();
         
         if(i<0 || j<0 || i==n || j==m || grid[i][j]=='X' || visited[i][j]) return;
@@ -29,25 +31,12 @@ public:
             
             modify(grid,x,y,visited);
         }
-    } */
-    
-    void dfs(vector<vector<char>>& grid, int i, int j){
-        int n=grid.size(), m=grid[0].size();
-        
-        if(i<0 || j<0 || i==n || j==m || grid[i][j]!='O') return;
-        
-        grid[i][j]='#';
-        for(int k=0;k<4;k++){
-            int x=i+dxy[k][0], y=j+dxy[k][1];
-            
-            dfs(grid,x,y);
-        }
     }
     
     void solve(vector<vector<char>>& grid) {
         int n=grid.size(), m=grid[0].size();
         
-    /*    vector<vector<bool>> visited(n,vector<bool>(m,false));
+        vector<vector<bool>> visited(n,vector<bool>(m,false));
         vector<pair<int,int>> v;
         for(int i=0;i<n;i++){
             for(int j=0;j<m;j++){
@@ -65,11 +54,31 @@ public:
         for(int k=0;k<v.size();k++){
             int i=v[k].first, j=v[k].second;
             modify(grid,i,j,visited);
-        } */
+        } 
+    }
+};
+
+// Approach 2: Boundary DFS
+
+class Solution {
+public:
+    
+    void dfs(vector<vector<char>>& grid, int i, int j){
+        int n=grid.size(), m=grid[0].size();
         
+        if(i<0 || j<0 || i==n || j==m || grid[i][j]!='O') return;
         
-        // Boundary DFS
-        
+        grid[i][j]='#';
+        for(int k=0;k<4;k++){
+            int x=i+dxy[k][0], y=j+dxy[k][1];
+            
+            dfs(grid,x,y);
+        }
+    }
+    
+    void solve(vector<vector<char>>& grid) {
+        int n=grid.size(), m=grid[0].size();
+                
         for(int i=0;i<n;i++){
             if(grid[i][0]=='O') dfs(grid,i,0);
             if(grid[i][m-1]=='O') dfs(grid,i,m-1);
