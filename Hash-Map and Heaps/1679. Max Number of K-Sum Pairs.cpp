@@ -1,4 +1,4 @@
-
+Question Link: https://leetcode.com/problems/max-number-of-k-sum-pairs/
 
 //basically we need to find distinct indexed pairs with sum=k
 
