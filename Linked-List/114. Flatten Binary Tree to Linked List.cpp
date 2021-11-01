@@ -23,7 +23,7 @@ public:
     }
 };
 
-// Approach 2:
+// Approach 2: Morris Traversal
 
 class Solution {
 public:
