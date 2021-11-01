@@ -1,3 +1,5 @@
+Question Link: https://leetcode.com/problems/divide-array-in-sets-of-k-consecutive-numbers/
+
 class Solution {
 public:
     bool isPossibleDivide(vector<int>& a, int k) {
