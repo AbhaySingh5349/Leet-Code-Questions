@@ -1,11 +1,14 @@
+
+
+//basically we need to find distinct indexed pairs with sum=k
+
 class Solution {
 public:
     
-    //basically we need to find distinct indexed pairs with sum=k
     int maxOperations(vector<int>& a, int k) {
         int n=a.size();
         
-    /*    sort(a.begin(),a.end());
+        sort(a.begin(),a.end());
         int c=0, i=0, j=n-1;
         
         while(i<j){
@@ -19,7 +22,17 @@ public:
                 i++,j--;
             }
         }
-        return c; */
+        return c; 
+    }
+};
+
+// Approach 2:
+
+class Solution {
+public:
+   
+    int maxOperations(vector<int>& a, int k) {
+        int n=a.size();
         
         map<int,int> mp;
         for(int i=0;i<n;i++) mp[a[i]]++;
