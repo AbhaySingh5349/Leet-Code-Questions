@@ -1,28 +1,49 @@
-Question Link: https://leetcode.com/problems/arithmetic-slices-ii-subsequence/
+Question Link: https://leetcode.com/problems/longest-arithmetic-subsequence-of-given-difference/
 
 class Solution {
 public:
-    
-    int numberOfArithmeticSlices(vector<int>& a) {
+    int longestSubsequence(vector<int>& a, int d) {
         int n=a.size();
-        if(n<3) return 0;
+        int len=0;
         
-        map<int,int> mp[n];
-        int c=0;
-        for(int i=1;i<n;i++){
-            for(int j=0;j<i;j++){
-                long long int cd=(long)a[i]-a[j];
-                
-                if (cd < INT_MIN || cd > INT_MAX) continue;
-                
-                if(mp[j].find(cd)!=mp[j].end()){
-                    c+=mp[j][cd];
-                    mp[i][cd]+=mp[j][cd]+1;
-                }else{
-                    mp[i][cd]+=1;
+        // considering each index as starting point of sequence
+        
+        for(int i=0;i<n-1;i++){
+            int prev=a[i];
+            int c=1;
+            for(int j=i+1;j<n;j++){
+                if(a[j]==prev+d){
+                    c++;
+                    prev=a[j];
                 }
             }
+            len=max(len,c);
+        }
+        return len; 
+    }
+};
+
+// Approach 2:
+
+class Solution {
+public:
+    int longestSubsequence(vector<int>& a, int d) {
+        int n=a.size();
+        int len=0;
+        
+        // dp[i]: longest subsequence including ith element as last: dp[i]=1+dp[i-d];
+        
+        map<int,int> m;
+        
+        for(int i=0;i<n;i++){
+            if(m.find(a[i]-d)!=m.end()){
+                m[a[i]]=1+m[a[i]-d];
+            }else{
+                m[a[i]]=1;
+            }
+            len=max(len,m[a[i]]);
         } 
-        return c;
+        
+        return len; 
     }
 };
