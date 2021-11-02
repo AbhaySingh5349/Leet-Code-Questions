@@ -2,36 +2,9 @@ class Solution {
 public:
     int maxProduct(vector<int>& a) {
         int n=a.size();
-  //      if(n==1) return a[0];
+        if(n==1) return a[0];
         
-        int dpmax, dpmin, ans;
-        ans=dpmax=dpmin=a[0];
-        
-        for(int i=1;i<n;i++){
-            int newmax, newmin;
-            newmax=max(a[i],max(dpmax*a[i],dpmin*a[i]));
-            newmin=min(a[i],min(dpmax*a[i],dpmin*a[i]));
-            
-            ans=max(newmax,ans);
-            dpmax=newmax, dpmin=newmin;
-        }
-        return ans;
-        
-/*        int dpmax[n], dpmin[n];
-        memset(dpmax,0,n), memset(dpmin,INT_MAX,n);
-        
-        dpmax[0]=dpmin[0]=a[0];
-        int ans=dpmax[0];
-        for(int i=1;i<n;i++){
-            dpmax[i]=max(a[i],max(dpmax[i-1]*a[i],dpmin[i-1]*a[i]));
-            dpmin[i]=min(a[i],min(dpmax[i-1]*a[i],dpmin[i-1]*a[i]));
-            
-            ans=max(dpmax[i],ans);
-            cout<<dpmax[i]<<","<<dpmin[i]<<" ";
-        }
-        return ans; */
-        
-   /*     int n1=0, maxp=1;
+        int n1=0, maxp=1;
         bool hasPositive=false, hasZero=false;
         int pos[n], neg[n];
         if(a[0]>0){
@@ -71,6 +44,16 @@ public:
             }
         }
         return maxp;
+    }
+};
+
+// Approach 2:
+
+class Solution {
+public:
+    int maxProduct(vector<int>& a) {
+        int n=a.size();
+        if(n==1) return a[0];
         
         int pp=1, np=1, maxp=1;
         int n1=0;
@@ -102,6 +85,53 @@ public:
                 return 0;
             }
         }
-        return maxp; */
+        return maxp; 
+    }
+};
+
+// Approach 3:
+
+class Solution {
+public:
+    int maxProduct(vector<int>& a) {
+        int n=a.size();
+        if(n==1) return a[0];
+        
+        int dpmax[n], dpmin[n];
+        memset(dpmax,0,n), memset(dpmin,INT_MAX,n);
+        
+        dpmax[0]=dpmin[0]=a[0];
+        int ans=dpmax[0];
+        for(int i=1;i<n;i++){
+            dpmax[i]=max(a[i],max(dpmax[i-1]*a[i],dpmin[i-1]*a[i]));
+            dpmin[i]=min(a[i],min(dpmax[i-1]*a[i],dpmin[i-1]*a[i]));
+            
+            ans=max(dpmax[i],ans);
+            cout<<dpmax[i]<<","<<dpmin[i]<<" ";
+        }
+        return ans; 
+    }
+};
+
+// Approach 4:
+
+class Solution {
+public:
+    int maxProduct(vector<int>& a) {
+        int n=a.size();
+        if(n==1) return a[0];
+        
+        int dpmax, dpmin, ans;
+        ans=dpmax=dpmin=a[0];
+        
+        for(int i=1;i<n;i++){
+            int newmax, newmin;
+            newmax=max(a[i],max(dpmax*a[i],dpmin*a[i]));
+            newmin=min(a[i],min(dpmax*a[i],dpmin*a[i]));
+            
+            ans=max(newmax,ans);
+            dpmax=newmax, dpmin=newmin;
+        }
+        return ans; 
     }
 };
