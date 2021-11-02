@@ -1,3 +1,5 @@
+Question Link: https://leetcode.com/problems/reduce-array-size-to-the-half/
+
 class Solution {
 public:
     int minSetSize(vector<int>& a) {
