@@ -1,3 +1,48 @@
+
+
+// Approach 1:
+
+class Solution {
+public:
+    
+    bool circularArrayLoop(vector<int>& a) {
+        int n=a.size();
+        
+        for(int i=0;i<n;i++){
+            set<int> visited;
+            visited.insert(i);
+            
+            int j=(i+a[i])%n;
+            if(j<0) j+=n;
+            
+            bool possible=true;
+            int len=1;
+            
+            while(1){
+                if(a[i]*a[j]<0){
+                    possible=false;
+                    break;
+                }
+                if(visited.find(j)!=visited.end()) break;
+                len++;
+                visited.insert(j);
+                
+                int next=(j+a[j])%n;
+                if(next<0) next+=n;
+                if(next==j){
+                    possible=false;
+                    break;
+                }
+                j=next;
+            }
+            if(possible && len>1) return true;
+        }
+        return false; 
+    }
+};
+
+// Approach 2:
+
 class Solution {
 public:
     
@@ -30,37 +75,6 @@ public:
     
     bool circularArrayLoop(vector<int>& a) {
         int n=a.size();
-        
-    /*    for(int i=0;i<n;i++){
-            set<int> visited;
-            visited.insert(i);
-            
-            int j=(i+a[i])%n;
-            if(j<0) j+=n;
-            
-            bool possible=true;
-            int len=1;
-            
-            while(1){
-                if(a[i]*a[j]<0){
-                    possible=false;
-                    break;
-                }
-                if(visited.find(j)!=visited.end()) break;
-                len++;
-                visited.insert(j);
-                
-                int next=(j+a[j])%n;
-                if(next<0) next+=n;
-                if(next==j){
-                    possible=false;
-                    break;
-                }
-                j=next;
-            }
-            if(possible && len>1) return true;
-        }
-        return false; */
         
         for(int i=0;i<n;i++){
             if(a[i]==0) continue;
