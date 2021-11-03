@@ -1,3 +1,5 @@
+Question Link: https://leetcode.com/problems/number-of-ways-where-square-of-number-is-equal-to-product-of-two-numbers/
+
 class Solution {
 public:
     
