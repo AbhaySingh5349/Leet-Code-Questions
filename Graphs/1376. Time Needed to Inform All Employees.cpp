@@ -1,3 +1,7 @@
+Question Link: https://leetcode.com/problems/time-needed-to-inform-all-employees/
+
+// Approach 1:
+
 class Solution {
 public:
     
@@ -15,7 +19,36 @@ public:
         }
     }
     
- /*   void dfs(int src,stack<int> &st){
+    int numOfMinutes(int n, int headID, vector<int>& manager, vector<int>& informTime) {
+        int i,j;
+        vector<int> indegree(n,0);
+        for(i=0;i<n;i++){
+            if(i==headID) continue;
+            
+            int u=manager[i];
+            int v=i;
+            int t=informTime[u];
+            
+            graph[u].push_back({v,t});
+            indegree[v]++;
+        }
+        dfs(headID,0); 
+        
+        return maxd; 
+    }
+};
+
+// Approach 2: // maximum path sum in DAG
+
+class Solution {
+public:
+    
+    #define N 100001
+    vector<pair<int,int>> graph[N];
+    bool visited[100001];
+    int maxd=0;
+    
+    void dfs(int src,stack<int> &st){
         visited[src]=true;
         for(int i=0;i<graph[src].size();i++){
             int child=graph[src][i].first;
@@ -24,7 +57,7 @@ public:
             }
         }
         st.push(src);
-    } */
+    } 
     
     int numOfMinutes(int n, int headID, vector<int>& manager, vector<int>& informTime) {
         int i,j;
@@ -39,11 +72,8 @@ public:
             graph[u].push_back({v,t});
             indegree[v]++;
         }
-    /*    dfs(headID,0); 
         
-        return maxd; */
-        
-    /*    stack<int> st;
+        stack<int> st;
         dfs(headID,st);
         
         vector<int> dist(n,-1);
@@ -66,10 +96,34 @@ public:
                 }
             }
         } 
-        return maxd; */
+        return maxd; 
+    }
+};
+
+// Approach 3: // maximum path sum in DAG
+
+class Solution {
+public:
+    
+    #define N 100001
+    vector<pair<int,int>> graph[N];
+    bool visited[100001];
+    int maxd=0;
+    
+    int numOfMinutes(int n, int headID, vector<int>& manager, vector<int>& informTime) {
+        int i,j;
+        vector<int> indegree(n,0);
+        for(i=0;i<n;i++){
+            if(i==headID) continue;
+            
+            int u=manager[i];
+            int v=i;
+            int t=informTime[u];
+            
+            graph[u].push_back({v,t});
+            indegree[v]++;
+        }
         
-        
-        // maximum path sum in DAG
         vector<int> time(n,0);
         queue<pair<int,int>> q;
         q.push({headID,0});
