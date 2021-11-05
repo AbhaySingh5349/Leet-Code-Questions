@@ -1,7 +1,11 @@
+Quesrtion Link: https://leetcode.com/problems/smallest-string-starting-from-leaf/
+
+// Approach 1:
+
 class Solution {
 public:
     
- /*   void solve(TreeNode* root, string s, vector<string> &v){
+    void solve(TreeNode* root, string s, vector<string> &v){
         if(root==NULL) return;
         
         char ch=root->val+'a';
@@ -15,9 +19,26 @@ public:
         
         solve(root->left,s,v);
         solve(root->right,s,v);
-    } */
+    } 
     
- /*   void solve(TreeNode* root, string s, string &ans){
+    string smallestFromLeaf(TreeNode* root) {
+        if(root==NULL) return "";
+        
+        // extra space, O(n*logn)
+        vector<string> v;
+        solve(root,"",v);
+        
+        sort(v.begin(),v.end());
+        return v[0];
+    }
+};
+
+// Approach 2:
+
+class Solution {
+public:
+    
+    void solve(TreeNode* root, string s, string &ans){
         if(root==NULL) return;
         
         char ch=root->val+'a';
@@ -31,7 +52,21 @@ public:
         
         solve(root->left,s,ans);
         solve(root->right,s,ans);
-    } */
+    } 
+    
+    string smallestFromLeaf(TreeNode* root) {
+        if(root==NULL) return "";
+        
+        // O(1) space
+        string ans="";
+        solve(root,"",ans); 
+    }
+};
+
+// Approach 3:
+
+class Solution {
+public:
     
     void solve(TreeNode* root, string s, string &ans){
         if(root==NULL) return;
@@ -50,17 +85,6 @@ public:
     
     string smallestFromLeaf(TreeNode* root) {
         if(root==NULL) return "";
-        
-        // extra space, O(n*logn)
-    /*    vector<string> v;
-        solve(root,"",v);
-        
-        sort(v.begin(),v.end());
-        return v[0]; */
-        
-        // O(1) space
-    /*    string ans="";
-        solve(root,"",ans); */
         
         string ans="";
         solve(root,"",ans);
