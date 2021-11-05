@@ -1,10 +1,14 @@
+Question Link: https://leetcode.com/problems/longest-consecutive-sequence/
+
+// Approach 1:
+
 class Solution {
 public:
     int longestConsecutive(vector<int>& a) {
         int n=a.size();
         if(n==0) return 0;
         
-    /*    sort(a.begin(),a.end());
+        sort(a.begin(),a.end());
         
         int c=1;
         int ans=1;
@@ -18,7 +22,17 @@ public:
             }
             ans=max(ans,c);
         }
-        return ans; */
+        return ans; 
+    }
+};
+
+// Approach 2:
+
+class Solution {
+public:
+    int longestConsecutive(vector<int>& a) {
+        int n=a.size();
+        if(n==0) return 0;
         
         unordered_map<int,bool> mp; // can current element be end of any sequence
         for(int i=0;i<n;i++) mp[a[i]]=true;
@@ -26,21 +40,6 @@ public:
         for(int i=0;i<n;i++){
             if(mp.find(a[i]+1)!=mp.end()) mp[a[i]]=false;
         }
-        
-    /*    int ans=1;
-        for(int i=0;i<n;i++){
-            if(mp.find(a[i])==mp.end() || mp[a[i]]==false) continue;
-            
-            int c=1;
-            int x=a[i];
-            while(mp.find(x-1)!=mp.end() && mp[x-1]==false){
-                c++;
-                x--;
-                mp.erase(x);
-            }
-            ans=max(ans,c);
-        }
-        return ans; */
         
         unordered_map<int,bool> :: iterator it;
         int ans=1;
