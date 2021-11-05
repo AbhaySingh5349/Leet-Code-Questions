@@ -1,17 +1,9 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
+Question Link: https://leetcode.com/problems/longest-univalue-path/
+
 class Solution {
 public:
-/*    int solve(TreeNode* root, int &ans){
+        
+    int solve(TreeNode* root, int &ans){
         if(root==NULL) return 0;
         
         int l=solve(root->left,ans);
@@ -23,7 +15,19 @@ public:
         ans=max(ans,lans+rans);
         
         return max(lans,rans);
-    } */
+    } 
+    
+    int longestUnivaluePath(TreeNode* root) {
+        int ans=0;
+        solve(root,ans);
+        return ans; 
+    }
+};
+
+// Approach 2:
+
+class Solution {
+public:
     
     struct path{
         int RTNpath; // either start 
@@ -60,9 +64,6 @@ public:
     }
     
     int longestUnivaluePath(TreeNode* root) {
-    /*    int ans=0;
-        solve(root,ans);
-        return ans; */
         return solve(root).maxlen;
     }
 };
