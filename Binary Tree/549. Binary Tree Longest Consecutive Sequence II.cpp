@@ -1,15 +1,4 @@
-/**
- * Definition of TreeNode:
- * class TreeNode {
- * public:
- *     int val;
- *     TreeNode *left, *right;
- *     TreeNode(int val) {
- *         this->val = val;
- *         this->left = this->right = NULL;
- *     }
- * }
- */
+Question Link: https://leetcode.com/problems/binary-tree-longest-consecutive-sequence-ii/
 
 class Solution {
 public:
@@ -17,7 +6,7 @@ public:
     struct path{
         int INCpath; // child node bigger
         int DECpath; // child node smaller
-        int maxlen;
+        int maxlen; // overall max length possible
     };
 
     struct path solve(TreeNode* root){
@@ -42,7 +31,6 @@ public:
 
         if(root->left!=NULL && root->right!=NULL) len=max(len,inc+dec-1);
         
-        cout<<root->val<<":"<<inc<<","<<dec<<","<<len<<"\n";
         return {inc,dec,len};
     }
 
