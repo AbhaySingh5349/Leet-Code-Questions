@@ -1,3 +1,5 @@
+Question Link: https://leetcode.com/problems/longest-substring-of-all-vowels-in-order/
+
 class Solution {
 public:
     int longestBeautifulSubstring(string s) {
