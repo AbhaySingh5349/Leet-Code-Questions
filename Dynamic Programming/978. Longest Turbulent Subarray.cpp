@@ -9,9 +9,9 @@ public:
         int maxlen=1;
         for(int i=1;i<n;i++){
             if(a[i]>a[i-1]){
-                cb[i]=cs[i-1]+1;
+                cb[i]=cs[i-1]+1; // subaary with last element > previous 
             }else if(a[i]<a[i-1]){
-                cs[i]=cb[i-1]+1;
+                cs[i]=cb[i-1]+1; // subaary with last element < previous
             }else{
                 cs[i]=cb[i]=1;
             }
