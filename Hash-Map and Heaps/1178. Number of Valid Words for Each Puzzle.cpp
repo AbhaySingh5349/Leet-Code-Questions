@@ -1,3 +1,5 @@
+Question Link: https://leetcode.com/problems/number-of-valid-words-for-each-puzzle/
+
 class Solution {
 public:
     vector<int> findNumOfValidWords(vector<string> &words, vector<string> &pzl) {
