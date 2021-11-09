@@ -1,3 +1,5 @@
+Question Link: https://leetcode.com/problems/sum-of-absolute-differences-in-a-sorted-array/
+
 class Solution {
 public:
     vector<int> getSumAbsoluteDifferences(vector<int>& a) {
