@@ -1,3 +1,5 @@
+Question Link: https://leetcode.com/problems/xor-queries-of-a-subarray/
+
 class Solution {
 public:
     vector<int> xorQueries(vector<int>& a, vector<vector<int>>& queries) {
