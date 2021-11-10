@@ -1,3 +1,5 @@
+Question Link: https://leetcode.com/problems/minimized-maximum-of-products-distributed-to-any-store/
+
 class Solution {
 public:
     
