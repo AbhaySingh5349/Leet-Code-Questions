@@ -1,3 +1,5 @@
+Question Link: https://leetcode.com/problems/corporate-flight-bookings/
+
 class Solution {
 public:
     vector<int> corpFlightBookings(vector<vector<int>>& book, int n) {
