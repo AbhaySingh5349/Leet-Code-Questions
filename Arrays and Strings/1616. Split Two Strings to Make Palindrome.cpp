@@ -23,7 +23,7 @@ public:
     }
     
     bool checkPalindromeFormation(string a, string b) {
-        
+        //Check if a-prefix + b-suffix or b-prefix + a-suffix forms a palindrome
         return check(a,b) || check(b,a);
     }
 };
