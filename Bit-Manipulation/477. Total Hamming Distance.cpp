@@ -1,3 +1,7 @@
+Question Link: https://leetcode.com/problems/total-hamming-distance/
+
+// Approach 1:
+
 class Solution {
 public:
     int totalHammingDistance(vector<int>& a) {
@@ -5,7 +9,7 @@ public:
         
         int ans=0;
         
-    /*    vector<int> count(32,0); // count of set bits 
+        vector<int> count(32,0); // count of set bits 
         for(int i=n-1;i>=0;i--){
             for(int j=0;j<32;j++){
                 int bit=a[i]&(1<<j);
@@ -16,7 +20,20 @@ public:
                     count[j]++;
                 }               
             }
-        } */
+        } 
+        
+        return ans;
+    }
+};
+
+// Approach 2:
+
+class Solution {
+public:
+    int totalHammingDistance(vector<int>& a) {
+        int n=a.size();
+        
+        int ans=0;
             
         for(int j=0;j<32;j++){
             int count=0;
