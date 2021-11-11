@@ -1,18 +1,11 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
+Question Link: https://leetcode.com/problems/number-of-good-leaf-nodes-pairs/
+
+// Approach 1:
+
 class Solution {
 public:
     
- /*   void getDepth(TreeNode* root, map<TreeNode*,int> &node, vector<TreeNode*> &leaf, int d){
+    void getDepth(TreeNode* root, map<TreeNode*,int> &node, vector<TreeNode*> &leaf, int d){
         if(root==NULL) return;
         
         node[root]=d;
@@ -37,7 +30,30 @@ public:
         if(lc!=NULL && rc!=NULL) return root;
         
         return (lc!=NULL ? lc:rc);
-    } */
+    } 
+    
+    int countPairs(TreeNode* root, int maxd) {
+        map<TreeNode*,int> node;
+        vector<TreeNode*> leaf;
+        getDepth(root,node,leaf,0);
+        
+        int c=0;
+        for(int i=0;i<leaf.size()-1;i++){
+            for(int j=i+1;j<leaf.size();j++){
+                TreeNode* lca=getLCA(root,leaf[i],leaf[j]);
+                int d=node[leaf[i]]+node[leaf[j]]-2*node[lca];
+                
+                if(d<=maxd) c++;
+            }
+        }
+        return c; 
+    }
+};
+
+// Approach 1:
+
+class Solution {
+public:
     
     vector<int> solve(TreeNode* root, int maxd, int &c){
         if(root==NULL) return {};
@@ -60,21 +76,6 @@ public:
     }
     
     int countPairs(TreeNode* root, int maxd) {
-    /*    map<TreeNode*,int> node;
-        vector<TreeNode*> leaf;
-        getDepth(root,node,leaf,0);
-        
-        int c=0;
-        for(int i=0;i<leaf.size()-1;i++){
-            for(int j=i+1;j<leaf.size();j++){
-                TreeNode* lca=getLCA(root,leaf[i],leaf[j]);
-                int d=node[leaf[i]]+node[leaf[j]]-2*node[lca];
-                
-                if(d<=maxd) c++;
-            }
-        }
-        return c; */
-        
         int c=0;
         solve(root,maxd,c);
         return c;
