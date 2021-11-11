@@ -1,3 +1,7 @@
+Question Link: https://leetcode.com/problems/minimum-value-to-get-positive-step-by-step-sum/
+
+// Approach 1:
+
 class Solution {
 public:
     
@@ -11,9 +15,8 @@ public:
     }
     
     int minStartValue(vector<int>& a) {
-        int n=a.size();
         
-    /*    int l=1, r=1e4+1;
+        int l=1, r=1e4+1;
         while(l<r){
             int m=l+(r-l)/2;
             if(possible(a,m)){
@@ -22,7 +25,17 @@ public:
                 l=m+1;
             }
         }
-        return l; */
+        return l;
+    }
+};
+
+// Approach 2:
+
+class Solution {
+public:
+    
+    int minStartValue(vector<int>& a) {
+        int n=a.size();
         
         int ans=1, sum=0;
         for(int i=0;i<n;i++){
