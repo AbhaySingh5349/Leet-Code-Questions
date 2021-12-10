@@ -1,51 +1,31 @@
-Question Link: https://leetcode.com/problems/container-with-most-water/
-
-// Approach 1:
+Link: https://leetcode.com/problems/container-with-most-water/
 
 class Solution {
-public:
-    int maxArea(vector<int>& height) {
-        int n=height.size();
-        int ans=0;
-        for(int i=0;i<n;i++){
-            int h=height[i];
-            int idx=i;
-            for(int j=i+1;j<n;j++){
-                if(height[j]>=h) idx=j;
-            }
-            ans=max(ans,h*(idx-i));
-            
-            idx=i;
-            for(int j=i-1;j>=0;j--){
-                if(height[j]>=h) idx=j;
-            }
-            ans=max(ans,h*(i-idx)); 
-        }
-        return ans; 
-    }
-};
+	public:
+		int maxArea(vector<int>& a) {
+			int n=a.size();
 
-// Approach 2:
+			int ans=0;
 
-class Solution {
-public:
-    int maxArea(vector<int>& height) {
-        int n=height.size();
-        int ans=0;
-        int i=0, j=n-1;
-        while(i<j){
-            int b=j-i;
-            int hi=height[i], hj=height[j];
-            int h=min(hi,hj);
-            
-            if(hi<hj){
-                i++;
-            }else{
-                j--;
-            }
-            
-            ans=max(ans,h*b);
-        }
-        return ans;
-    }
+			/*    for(int i=0;i<n;i++){
+			        int h=a[i], r=i, l=i;
+
+			        for(int j=i+1;j<n;j++) if(a[j]>=a[i]) r=j;
+			        for(int j=i-1;j>=0;j--) if(a[j]>=a[i]) l=j;
+
+			        ans=max(ans,h*(r-l));
+			    } */
+
+			int i=0, j=n-1;
+			while(i<j) {
+				ans=max(ans,min(a[i],a[j])*(j-i));
+				if(a[j]>a[i]) {
+					i++;
+				} else {
+					j--;
+				}
+			}
+
+			return ans;
+		}
 };
