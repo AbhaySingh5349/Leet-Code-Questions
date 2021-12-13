@@ -1,5 +1,7 @@
 Question Link: https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
 
+// Approach 1:
+
 class Solution {
 public:
     
@@ -31,3 +33,5 @@ public:
         return ans;
     }
 };
+
+// Approach 2:
