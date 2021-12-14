@@ -1,6 +1,6 @@
 Question Link: https://leetcode.com/problems/longest-increasing-subsequence/
 
-// Approac 1:
+// Approach 1:
 
 class Solution {
 public:
