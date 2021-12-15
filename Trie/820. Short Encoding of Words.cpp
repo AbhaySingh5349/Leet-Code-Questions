@@ -1,6 +1,6 @@
 Question Link: https://leetcode.com/problems/short-encoding-of-words/
 
-// Approac 1:
+// Approach 1:
 
 class Solution {
 public:
@@ -70,26 +70,6 @@ public:
     
     int minimumLengthEncoding(vector<string>& words) {
         int n=words.size();
-        
-    /*    set<string> st;
-        for(int i=0;i<n;i++) st.insert(words[i]);
-        
-        for(int i=0;i<n;i++){
-            string s=words[i];
-            for(int j=0;j<s.length();j++){
-                string suf=s.substr(j+1);
-                if(st.find(suf)!=st.end()) st.erase(suf); // removing words which are suffixes of other
-            }
-        }
-        
-        int c=0;
-        set<string> :: iterator it;
-        for(it=st.begin();it!=st.end();it++){
-            string s=*it;
-            c+=s.length()+1;
-        }
-        
-        return c;  */
         
         root = createNode('*'-'a');
         
