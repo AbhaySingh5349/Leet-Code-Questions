@@ -1,4 +1,6 @@
-Question Link: https://leetcode.com/problems/find-subsequence-of-length-k-with-the-largest-sum/
+Question Link: https://leetcode.com/problems/replace-words/
+
+// Approac 1:
 
 class Solution {
 public:
@@ -50,3 +52,5 @@ public:
         return ans.substr(0,ans.length()-1);
     }
 };
+
+// Approach 2:
