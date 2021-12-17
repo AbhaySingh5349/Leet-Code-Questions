@@ -1,4 +1,4 @@
-Question Link: https://leetcode.com/problems/find-subsequence-of-length-k-with-the-largest-sum/
+Question Link: https://leetcode.com/problems/maximum-xor-with-an-element-from-array/
 
 class Solution {
 public:
