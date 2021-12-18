@@ -1,4 +1,6 @@
-Question Link: https://leetcode.com/problems/find-subsequence-of-length-k-with-the-largest-sum/
+Question Link: https://leetcode.com/problems/longest-word-in-dictionary/
+
+// Approach 1:
 
 class Solution {
 public:
@@ -23,3 +25,5 @@ public:
         return ans;
     }
 };
+
+// Approach 2:
