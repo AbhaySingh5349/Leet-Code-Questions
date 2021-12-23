@@ -61,7 +61,7 @@ public:
     bool search(string s){
         TrieNode *cur = root;
         for(int i=0;i<s.length();i++){
-            int idx=s[i]-'a';
+            int idx=s[i]-'a'; // checking each and every prefix present for particular string [0,i]
             if(cur->child[idx]==NULL || cur->child[idx]->wordEnd==0) return false;
             cur=cur->child[idx];
         }
