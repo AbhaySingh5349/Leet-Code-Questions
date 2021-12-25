@@ -14,11 +14,11 @@ public:
     void addNum(int num) {
         v.push_back(num);
         
-        int j=v.size()-1;
+        int j=v.size()-1; // Insertion Sort
         while(j>0 && v[j]<v[j-1]){
-			swap(v[j],v[j-1]);
-			j--;
-		}
+		swap(v[j],v[j-1]);
+		j--;
+	}
     }
     
     double findMedian() {
