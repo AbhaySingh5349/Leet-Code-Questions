@@ -1,9 +1,11 @@
-Question Link: https://leetcode.com/problems/find-subsequence-of-length-k-with-the-largest-sum/
+Question Link: https://leetcode.com/problems/longest-duplicate-substring/
+
+// Approach 1:
 
 class Solution {
 public:
     
-  /*  bool isPossible(string s, int len, string &ans){
+    bool isPossible(string s, int len, string &ans){
         int n=s.length();
         map<string,int> mp;
         for(int i=0;i<n-len+1;i++){
@@ -19,7 +21,59 @@ public:
             mp[sub]++;
         }
         return false;
-    } */
+    } 
+    
+    string longestDupSubstring(string s) {
+        int n=s.length();
+        
+        // O(n^3)
+        map<string,int> mp;
+        for (int len=1;len<=n;len++) {
+            // starting point 
+            for (int i=0; i<n-len+1; i++) {
+                int j=i+len-1; // ending point
+                string sub="";
+                for (int k=i;k<=j;k++) {
+                    sub+=s[k];
+                }
+                mp[sub]++;
+            }
+        }
+        map<string,int> :: iterator it;
+        int maxlen=0;
+        string ans="";
+        for(it=mp.begin();it!=mp.end();it++){
+            string sub=it->first;
+            int f=mp[sub];
+            if(f>1){
+                int len=sub.length();
+                if(len>maxlen){
+                    maxlen=len;
+                    ans=sub;
+                }
+            }
+        }
+        return ans; 
+        
+        // O(n^2logn)
+        int l=0, r=n-1;
+        string ans="";
+        while(l<r){
+            int m=l+(r-l+1)/2;
+            if(isPossible(s,m,ans)){
+                l=m;
+            }else{
+                r=m-1;
+            }
+        }
+        return ans; 
+    }
+};
+
+// Approach 2:
+
+class Solution {
+public:
     
     #define ll long long
     
@@ -62,47 +116,6 @@ public:
     
     string longestDupSubstring(string s) {
         int n=s.length();
-        // O(n^3)
-    /*    map<string,int> mp;
-        for (int len=1;len<=n;len++) {
-            // starting point 
-            for (int i=0; i<n-len+1; i++) {
-                int j=i+len-1; // ending point
-                string sub="";
-                for (int k=i;k<=j;k++) {
-                    sub+=s[k];
-                }
-                mp[sub]++;
-            }
-        }
-        map<string,int> :: iterator it;
-        int maxlen=0;
-        string ans="";
-        for(it=mp.begin();it!=mp.end();it++){
-            string sub=it->first;
-            int f=mp[sub];
-            if(f>1){
-                int len=sub.length();
-                if(len>maxlen){
-                    maxlen=len;
-                    ans=sub;
-                }
-            }
-        }
-        return ans; */
-        
-        // O(n^2logn)
-    /*    int l=0, r=n-1;
-        string ans="";
-        while(l<r){
-            int m=l+(r-l+1)/2;
-            if(isPossible(s,m,ans)){
-                l=m;
-            }else{
-                r=m-1;
-            }
-        }
-        return ans; */
         
         int l=0, r=n-1;
         string ans="";
