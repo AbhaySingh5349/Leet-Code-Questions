@@ -1,4 +1,6 @@
-Question Link: https://leetcode.com/problems/find-subsequence-of-length-k-with-the-largest-sum/
+Question Link: https://leetcode.com/problems/min-cost-climbing-stairs/
+
+// Approach 1:
 
 class Solution {
 public:
