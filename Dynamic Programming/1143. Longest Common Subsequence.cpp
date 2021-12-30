@@ -1,5 +1,7 @@
 Question Link: https://leetcode.com/problems/find-subsequence-of-length-k-with-the-largest-sum/
 
+// Approach 1:
+
 class Solution {
 public:
     
@@ -26,9 +28,19 @@ public:
         int n=s1.length(), m=s2.length();
         memo.resize(n,vector<int>(m,-1));
         
-    //    return solve(s1,s2,0,0);
+        return solve(s1,s2,0,0);
+    }
+};
+
+// Approach 2:
+
+class Solution {
+public:
+    
+    int longestCommonSubsequence(string s1, string s2) {
+        int n=s1.length(), m=s2.length();
         
-    /*    int dp[n+1][m+1];
+        int dp[n+1][m+1];
         for(int i=0,j=0;i<n+1;i++) dp[i][j]=0;
         for(int i=0,j=0;j<m+1;j++) dp[i][j]=0;
         
@@ -41,7 +53,18 @@ public:
                 }
             }
         }
-        return dp[n][m]; */
+        return dp[n][m]; 
+    }
+};
+
+
+// Approach 3:
+
+class Solution {
+public:
+    
+    int longestCommonSubsequence(string s1, string s2) {
+        int n=s1.length(), m=s2.length();
         
         int dp[n+1][m+1];
         for(int i=n,j=0;j<m+1;j++) dp[i][j]=0;
@@ -59,5 +82,3 @@ public:
         return dp[0][0];
     }
 };
-
-
