@@ -1,4 +1,6 @@
-Question Link: https://leetcode.com/problems/find-subsequence-of-length-k-with-the-largest-sum/
+Question Link: https://leetcode.com/problems/maximum-score-from-performing-multiplication-operations/
+
+// Approach 1:
 
 class Solution {
 public:
