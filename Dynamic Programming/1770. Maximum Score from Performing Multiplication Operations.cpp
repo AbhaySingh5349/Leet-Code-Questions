@@ -25,8 +25,18 @@ public:
         if(n==1) return mul[0]*a[0];
         
         int m=mul.size();
-    //    memo.resize(m,vector<int>(m,-1));
-    //    return solve(a,0,mul,0);
+        memo.resize(m,vector<int>(m,-1));
+        return solve(a,0,mul,0);
+    }
+};
+
+// Approach 2:
+
+class Solution {
+public:
+    
+    int maximumScore(vector<int> &a, vector<int> &mul) {
+        int n=a.size();
         
         vector<vector<int>> dp(m+1,vector<int>(m+1,0));
         
