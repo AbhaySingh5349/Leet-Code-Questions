@@ -1,5 +1,7 @@
 Question Link: https://leetcode.com/problems/find-subsequence-of-length-k-with-the-largest-sum/
 
+// Approach 1:
+
 class Solution {
 public:
     
@@ -24,9 +26,22 @@ public:
         a.push_back(1);
         
         int n=a.size();
-    /*    memo.resize(n,vector<int>(n,-1));
+        memo.resize(n,vector<int>(n,-1));
         
-        return solve(a,1,n-2); */
+        return solve(a,1,n-2); 
+    }
+};
+
+// Approach 2:
+
+class Solution {
+public:
+    
+    int maxCoins(vector<int> &a) {
+        a.insert(a.begin(),1);
+        a.push_back(1);
+        
+        int n=a.size();
         
         int dp[n][n];
         memset(dp,0,sizeof(dp));
