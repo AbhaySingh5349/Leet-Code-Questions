@@ -1,4 +1,34 @@
-Question Link: https://leetcode.com/problems/capitalize-the-title/
+Question Link: https://leetcode.com/problems/maximum-length-of-repeated-subarray/
+
+// Approach 1:
+
+class Solution {
+public:
+    
+    int findLength(vector<int> &a, vector<int> &b) {
+        int n=a.size(), m=b.size();
+        
+        int dp[n+1][m+1];
+        memset(dp,0,sizeof(dp));
+        for(int i=1;i<n+1;i++){
+            for(int j=1;j<m+1;j++){
+                if(a[i-1]==b[j-1]){
+                    dp[i][j]=dp[i-1][j-1]+1;
+                }else{
+                    dp[i][j]=0;
+                }
+            }
+        }
+        
+        int maxlen=0;
+        for(int i=1;i<n+1;i++){
+            for(int j=1;j<m+1;j++) maxlen=max(maxlen,dp[i][j]);
+        }
+        return maxlen; 
+    }
+};
+
+// Approach 2:
 
 class Solution {
 public:
@@ -51,18 +81,6 @@ public:
     
     int findLength(vector<int> &a, vector<int> &b) {
         int n=a.size(), m=b.size();
-        
-    /*    int base = max(*max_element(a.begin(),a.end()),*max_element(b.begin(),b.end())) + 1;
-        int l=0, r=min(n,m);
-        while(l<r){
-            int mid=l+(r-l+1)/2;
-            if(possible(a,b,mid,base)){
-                l=mid;
-            }else{
-                r=mid-1;
-            }
-        }
-        return l; */
         
         int dp[n+1][m+1];
         memset(dp,0,sizeof(dp));
