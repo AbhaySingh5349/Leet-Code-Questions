@@ -1,5 +1,7 @@
 Question Link:https://leetcode.com/problems/minimum-cost-to-connect-sticks/
 
+// Approach 1:
+
 class Solution {
 public:
     
@@ -36,5 +38,40 @@ public:
             }
         }
         return (p==1);
+    }
+};
+
+// Approach 2:
+
+class Solution {
+public:
+    
+    bool cycle(vector<int> graph[], int src, int par, vector<bool> &visited){
+        visited[src]=true;
+        for(int i=0;i<graph[src].size();i++){
+            int child=graph[src][i];
+            if(visited[child]==false){
+                if(cycle(graph,child,src,visited)) return true;
+            }else{
+                if(child!=par) return true;
+            }
+        }
+        return false;
+    }
+    
+    bool validTree(int n, vector<vector<int>>& edges) {
+        vector<int> graph[n];
+        for(int i=0;i<edges.size();i++){
+            int u=edges[i][0], v=edges[i][1];
+            graph[u].push_back(v);
+            graph[v].push_back(u);
+        }
+        
+        vector<bool> visited(n,false);
+        
+        if(cycle(graph,0,-1,visited)) return false;
+        for(int i=0;i<n;i++) if(visited[i]==false) return false;
+        
+        return true;
     }
 };
