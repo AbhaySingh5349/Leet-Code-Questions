@@ -1,5 +1,7 @@
 Question Link: https://leetcode.com/problems/cheapest-flights-within-k-stops/
 
+// Approach 1:
+
 class Solution {
 public:
     
@@ -24,8 +26,7 @@ public:
             int w=flights[i][2];
             graph[u].push_back(make_pair(v,w));
         }
-        
-     /* 
+         
         priority_queue<node,vector<node>,compare> pq;
         struct node p={0,src,0};
         pq.push(p);
@@ -56,7 +57,25 @@ public:
                 }
             }
         }
-        return -1; */
+        return -1;
+    }
+};
+
+// Approach 2:
+
+class Solution {
+public:
+    
+    int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int k) {
+        int vertices=n, edges=flights.size();
+        vector<pair<int,int>> graph[n];
+        int i,j;
+        for(i=0;i<flights.size();i++){
+            int u=flights[i][0];
+            int v=flights[i][1];
+            int w=flights[i][2];
+            graph[u].push_back(make_pair(v,w));
+        }
         
         vector<vector<int>> dp(n,vector<int>(k+2,INT_MAX)); // price to reach ith city with atmost j allowed routes/edges
         for(int j=0;j<k+2;j++) dp[src][j]=0;
