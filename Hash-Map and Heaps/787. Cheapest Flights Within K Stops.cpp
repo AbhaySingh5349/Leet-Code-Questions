@@ -1,6 +1,6 @@
 Question Link: https://leetcode.com/problems/cheapest-flights-within-k-stops/
 
-// Approach 1:
+// Approach 1: O(V^2 .log V)
 
 class Solution {
 public:
@@ -61,7 +61,7 @@ public:
     }
 };
 
-// Approach 2:
+// Approach 2: O(K⋅E)
 
 class Solution {
 public:
@@ -80,7 +80,7 @@ public:
         vector<vector<int>> dp(n,vector<int>(k+2,INT_MAX)); // price to reach ith city with atmost j allowed routes/edges
         for(int j=0;j<k+2;j++) dp[src][j]=0;
         
-        for(int j=1;j<k+2;j++){
+        for(int j=1;j<k+2;j++){ // Bellman Ford Algorithm
             for(vector<int> &flight : flights){
                 int u=flight[0], v=flight[1], cost=flight[2];
                 if(dp[u][j-1]<INT_MAX){
