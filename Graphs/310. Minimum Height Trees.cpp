@@ -1,4 +1,4 @@
-Question Link: https://leetcode.com/problems/minimum-cost-to-connect-sticks/
+Question Link: https://leetcode.com/problems/minimum-height-trees/
 
 // Approach 1:
 
