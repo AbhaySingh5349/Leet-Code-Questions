@@ -1,4 +1,4 @@
-Question Link: https://leetcode.com/problems/minimum-cost-to-connect-sticks/
+Question Link: https://leetcode.com/problems/middle-of-the-linked-list/
 
 class Solution {
 public:
