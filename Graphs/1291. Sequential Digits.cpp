@@ -1,9 +1,11 @@
-Question Link: https://leetcode.com/problems/license-key-formatting/
+Question Link: https://leetcode.com/problems/sequential-digits/
+
+// Approach 1:
 
 class Solution {
 public:
     vector<int> sequentialDigits(int low, int high) {
-    /*    int x=low, lb=0;
+        int x=low, lb=0;
         while(x>0){
             lb++;
             x/=10;
@@ -28,8 +30,15 @@ public:
                 if(val>=low && val<=high) ans.push_back(val);
             }
         }
-        return ans; */
-        
+        return ans; 
+    }
+};
+
+// Approach 2:
+
+class Solution {
+public:
+    vector<int> sequentialDigits(int low, int high) {
         queue<int> q;
         for(int i=1;i<=9;i++) q.push(i);
         
