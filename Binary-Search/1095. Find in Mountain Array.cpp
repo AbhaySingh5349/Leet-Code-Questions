@@ -1,4 +1,4 @@
-Question Link: https://leetcode.com/problems/trapping-rain-water/
+Question Link: https://leetcode.com/problems/find-in-mountain-array/
 
 /*
  // This is the MountainArray's API interface.
