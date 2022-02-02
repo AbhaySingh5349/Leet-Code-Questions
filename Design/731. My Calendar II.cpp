@@ -27,3 +27,30 @@ public:
 };
 
 // Approach 2:
+
+class MyCalendarTwo {
+public:
+    
+    vector<pair<int,int>> events, doubleEvents;
+    
+    MyCalendarTwo() {
+        events.clear();
+        doubleEvents.clear();
+    }
+    
+    bool book(int start, int end) {
+        for(pair<int,int> &p : doubleEvents){
+            // tripple overlap
+            if(start<p.second && end>p.first) return false;
+        }
+        
+        for(pair<int,int> &p : events){
+            // double overlap
+            if(start<p.second && end>p.first){
+                doubleEvents.push_back({max(start,p.first),min(end,p.second)});
+            }
+        }
+        events.push_back({start,end});
+        return true;
+    }
+};
